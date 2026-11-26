@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Business Name — What you offer in one clear sentence</title>
+  <meta name="description" content="My Business Name: what you offer in one clear sentence. Trusted, responsive, and focused on results.">
+  <meta name="theme-color" content="#0b1f3a">
+  <meta property="og:title" content="My Business Name">
+  <meta property="og:description" content="What you offer in one clear sentence.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1f3a'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='700' font-size='30' fill='%2338bdf8'%3EM%3C/text%3E%3C/svg%3E">
+  <!-- Apply saved/system theme before paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    })();
+  </script>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="My Business Name home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span class="brand-name">My Business Name</span>
+      </a>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="btn btn-sm" href="#contact">Get a Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <p class="eyebrow">Local consulting · Contracting · Trusted experts</p>
+        <h1 id="hero-title">What you offer in one clear sentence.</h1>
+        <p class="lead">We help businesses and homeowners get the job done right the first time — with transparent pricing, reliable timelines, and people who actually pick up the phone.</p>
+        <div class="hero-cta">
+          <a class="btn btn-lg" href="#contact">Get Your Free Consultation</a>
+          <a class="btn btn-lg btn-ghost" href="#services">Explore Services</a>
+        </div>
+        <ul class="hero-stats" aria-label="Highlights">
+          <li><strong>10+</strong><span>Years of experience</span></li>
+          <li><strong>500+</strong><span>Projects delivered</span></li>
+          <li><strong>4.9★</strong><span>Average client rating</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">What we do</p>
+          <h2 id="services-title">Services built around your goals</h2>
+          <p class="section-sub">Focused offerings, delivered by a team that cares about the details.</p>
+        </header>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>
+            </div>
+            <h3>Service 1</h3>
+            <p>A clear description of your first core service — what it is, who it's for, and the outcome customers can expect.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>
+            </div>
+            <h3>Service 2</h3>
+            <p>Explain your second service in plain language. Focus on the problem you solve and why your approach works.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg>
+            </div>
+            <h3>Service 3</h3>
+            <p>Highlight your third offering. Mention a key benefit, a guarantee, or what makes it different from competitors.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21.1l1.4-7L2 9.3l7-.8z"/></svg>
+            </div>
+            <h3>Ongoing Support</h3>
+            <p>We don't disappear after the job is done. Get follow-up check-ins, maintenance options, and a direct line to our team.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section section-alt" id="about" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about-copy">
+          <p class="eyebrow">Who we are</p>
+          <h2 id="about-title">A small team with big standards</h2>
+          <p>My Business Name was founded on a simple idea: customers deserve honest advice, quality work, and clear communication from start to finish. We're a locally owned team of experienced professionals who treat every project like it's our own.</p>
+          <p>Whether you're starting something new or fixing something that isn't working, we'll listen first, recommend what you actually need, and deliver on our promises.</p>
+        </div>
+
+        <div class="about-why">
+          <h3>Why customers choose us</h3>
+          <ul class="checklist">
+            <li><strong>Transparent pricing.</strong> Detailed quotes up front — no surprise fees.</li>
+            <li><strong>Fast response.</strong> We reply to every inquiry within one business day.</li>
+            <li><strong>Proven expertise.</strong> Licensed, insured, and experienced professionals.</li>
+            <li><strong>Satisfaction guaranteed.</strong> If it's not right, we make it right.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Get in touch</p>
+          <h2 id="contact-title">Let's talk about your project</h2>
+          <p class="section-sub">Send us a message and we'll get back to you within one business day.</p>
+        </header>
+
+        <div class="contact">
+          <aside class="contact-info" aria-label="Contact details">
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+              </div>
+              <div>
+                <h3>Email</h3>
+                <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+              </div>
+              <div>
+                <h3>Phone</h3>
+                <a href="tel:+15551234567">(555) 123-4567</a>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </div>
+              <div>
+                <h3>Hours</h3>
+                <p>Mon–Fri: 8:00am – 6:00pm<br>Sat: 9:00am – 1:00pm</p>
+              </div>
+            </div>
+          </aside>
+
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Full name <span aria-hidden="true">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required minlength="2" aria-describedby="name-error">
+                <p class="error" id="name-error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+                <p class="error" id="email-error" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="phone">Phone <span class="optional">(optional)</span></label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" aria-describedby="phone-error">
+                <p class="error" id="phone-error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="service">Service of interest <span aria-hidden="true">*</span></label>
+                <select id="service" name="service" required aria-describedby="service-error">
+                  <option value="">Select a service…</option>
+                  <option>Service 1</option>
+                  <option>Service 2</option>
+                  <option>Service 3</option>
+                  <option>Ongoing Support</option>
+                  <option>Something else</option>
+                </select>
+                <p class="error" id="service-error" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">How can we help? <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="5" required minlength="10" aria-describedby="message-error"></textarea>
+              <p class="error" id="message-error" aria-live="polite"></p>
+            </div>
+            <!-- Honeypot field to deter bots (hidden from people) -->
+            <div class="hp" aria-hidden="true">
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="btn btn-lg btn-block" type="submit">Send Inquiry</button>
+            <p class="form-note">We respect your privacy and never share your information.</p>
+          </form>
+
+          <div class="form-success" id="formSuccess" role="status" aria-live="polite" hidden tabindex="-1">
+            <div class="success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h3>Thanks, <span id="successName">friend</span>!</h3>
+            <p>Your inquiry has been received. We'll reach out within one business day.</p>
+            <button class="btn btn-ghost" id="resetForm" type="button">Send another message</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">M</span>
+          <span class="brand-name">My Business Name</span>
+        </a>
+        <p>What you offer in one clear sentence.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#top">Back to top ↑</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> My Business Name. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>
