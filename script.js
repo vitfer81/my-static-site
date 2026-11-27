@@ -136,9 +136,9 @@
   var statusEl = document.getElementById('formStatus');
   if (!form) return;
 
-  // Inquiries are emailed to this address via FormSubmit.
-  var CONTACT_EMAIL = 'vitoferlisi@gmail.com';
-  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + CONTACT_EMAIL;
+  // Inquiries are sent to the site's Cloudflare Pages Function
+  // (functions/api/contact.js), which emails them to the business owner.
+  var FORM_ENDPOINT = '/api/contact';
 
   var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   var phoneRe = /^[+()\d\s.-]{7,20}$/;
@@ -220,11 +220,10 @@
     var data = {
       name: form.elements.name.value.trim(),
       email: form.elements.email.value.trim(),
-      phone: form.elements.phone.value.trim() || 'Not provided',
+      phone: form.elements.phone.value.trim(),
       service: form.elements.service.value,
       message: form.elements.message.value.trim(),
-      _subject: 'New inquiry from ' + form.elements.name.value.trim() + ' (Acme 1-2-3 website)',
-      _template: 'table'
+      company: form.elements.company ? form.elements.company.value : ''
     };
 
     function done() {
@@ -233,13 +232,20 @@
     }
 
     function fail() {
-      statusEl.innerHTML = 'Sorry, your message could not be sent. Please try again or email us directly at ' +
-        '<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.';
+      // Offer the email or phone shown in the contact section as a fallback
+      var direct = document.querySelector('.contact-info a[href^="mailto:"]') ||
+        document.querySelector('.contact-info a[href^="tel:"]');
+      statusEl.textContent = 'Sorry, your message could not be sent. Please try again';
+      if (direct) {
+        statusEl.appendChild(document.createTextNode(' or contact us directly at '));
+        var link = direct.cloneNode(true);
+        statusEl.appendChild(link);
+      }
+      statusEl.appendChild(document.createTextNode('.'));
       statusEl.hidden = false;
       done();
     }
 
-    // Deliver the inquiry by email through FormSubmit (https://formsubmit.co)
     fetch(FORM_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -249,7 +255,7 @@
         return res.json().then(function (json) { return { ok: res.ok, json: json }; });
       })
       .then(function (r) {
-        if (!r.ok || String(r.json.success) !== 'true') throw new Error(r.json.message || 'Send failed');
+        if (!r.ok || r.json.success !== true) throw new Error(r.json.message || 'Send failed');
         successName.textContent = data.name.split(' ')[0];
         form.hidden = true;
         success.hidden = false;
