@@ -325,10 +325,17 @@ ul { margin: 0; padding: 0; list-style: none; }
 .section-sub { color: var(--text-muted); font-size: 1.075rem; margin: 0; }
 
 /* ---------- Cards ---------- */
+/* Cards wrap into centered rows, so an uneven last row stays balanced */
 .cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
+  --cols: 1;
+  --gap: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+}
+.cards > .card {
+  flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
 }
 .card {
   padding: 1.75rem;
@@ -576,7 +583,7 @@ ul { margin: 0; padding: 0; list-style: none; }
    ========================================================= */
 @media (min-width: 560px) {
   .hero-cta { flex-direction: row; flex-wrap: wrap; }
-  .cards { grid-template-columns: repeat(2, 1fr); }
+  .cards { --cols: 2; }
   .form-row { grid-template-columns: 1fr 1fr; }
   .contact-form, .form-success { padding: 2rem; }
 }
@@ -623,7 +630,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (min-width: 1060px) {
-  .cards { grid-template-columns: repeat(4, 1fr); }
+  .cards { --cols: 3; }
 }
 
 @media (prefers-reduced-motion: reduce) {
