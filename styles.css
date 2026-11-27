@@ -494,7 +494,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-radius: 10px;
 }
 .footer-address { margin-top: .5rem; font-style: normal; font-size: .925rem; }
-.footer-address a { color: #c7d4e8; }
+.footer-address a { color: #c7d4e8; white-space: nowrap; }
 .footer-address a:hover { color: #38bdf8; }
 .form-note {
   margin: .9rem 0 0;
@@ -574,6 +574,43 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .footer-bottom p { margin: 0; }
 
+/* ---------- Click-to-call ---------- */
+.btn-call svg,
+.call-fab svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.btn-call svg { width: 20px; height: 20px; }
+
+.call-fab {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  color: var(--on-accent);
+  background: var(--accent);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, .45), 0 2px 6px rgba(0, 0, 0, .2);
+  transition: transform .2s, background-color .2s;
+  animation: fab-pulse 2.4s ease-out 1.5s 3;
+}
+.call-fab:hover,
+.call-fab:focus-visible { color: var(--on-accent); background: var(--accent-hover); transform: scale(1.06); }
+.call-fab svg { width: 26px; height: 26px; }
+@keyframes fab-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, .55), 0 6px 20px rgba(2, 132, 199, .45); }
+  100% { box-shadow: 0 0 0 18px rgba(56, 189, 248, 0), 0 6px 20px rgba(2, 132, 199, .45); }
+}
+/* Keep the floating button from covering the end of the page */
+.site-footer { padding-bottom: 76px; }
+
 /* ---------- Reveal on scroll ---------- */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.visible { opacity: 1; transform: none; }
@@ -627,6 +664,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   .about { grid-template-columns: 1.1fr 1fr; gap: 3.5rem; align-items: center; }
   .contact { grid-template-columns: 1fr 1.6fr; gap: 2rem; }
   .footer-inner { grid-template-columns: 1fr auto; align-items: center; }
+  .call-fab { display: none; }
+  .site-footer { padding-bottom: 0; }
 }
 
 @media (min-width: 1060px) {
