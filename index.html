@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Business Name — What you offer in one clear sentence</title>
-  <meta name="description" content="My Business Name: what you offer in one clear sentence. Trusted, responsive, and focused on results.">
+  <title>Acme 1-2-3 — What you offer in one clear sentence</title>
+  <meta name="description" content="Acme 1-2-3: what you offer in one clear sentence. Trusted, responsive, and focused on results.">
   <meta name="theme-color" content="#0b1f3a">
-  <meta property="og:title" content="My Business Name">
+  <meta property="og:title" content="Acme 1-2-3">
   <meta property="og:description" content="What you offer in one clear sentence.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1f3a'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='700' font-size='30' fill='%2338bdf8'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1f3a'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='700' font-size='30' fill='%2338bdf8'%3EA%3C/text%3E%3C/svg%3E">
   <!-- Apply saved/system theme before paint to avoid a flash -->
   <script>
     (function () {
@@ -27,9 +27,9 @@
 
   <header class="site-header" id="top">
     <nav class="nav container" aria-label="Primary">
-      <a class="brand" href="#top" aria-label="My Business Name home">
-        <span class="brand-mark" aria-hidden="true">M</span>
-        <span class="brand-name">My Business Name</span>
+      <a class="brand" href="#top" aria-label="Acme 1-2-3 home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="brand-name">Acme 1-2-3</span>
       </a>
 
       <div class="nav-actions">
@@ -118,7 +118,7 @@
         <div class="about-copy">
           <p class="eyebrow">Who we are</p>
           <h2 id="about-title">A small team with big standards</h2>
-          <p>My Business Name was founded on a simple idea: customers deserve honest advice, quality work, and clear communication from start to finish. We're a locally owned team of experienced professionals who treat every project like it's our own.</p>
+          <p>Acme 1-2-3 was founded by owner JP Cubish on a simple idea: customers deserve honest advice, quality work, and clear communication from start to finish. We're a locally owned team of experienced professionals who treat every project like it's our own.</p>
           <p>Whether you're starting something new or fixing something that isn't working, we'll listen first, recommend what you actually need, and deliver on our promises.</p>
         </div>
 
@@ -147,11 +147,20 @@
           <aside class="contact-info" aria-label="Contact details">
             <div class="info-item">
               <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+              </div>
+              <div>
+                <h3>Owner</h3>
+                <p>JP Cubish</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
               </div>
               <div>
                 <h3>Email</h3>
-                <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
+                <a href="mailto:vitoferlisi@gmail.com">vitoferlisi@gmail.com</a>
               </div>
             </div>
             <div class="info-item">
@@ -160,16 +169,16 @@
               </div>
               <div>
                 <h3>Phone</h3>
-                <a href="tel:+15551234567">(555) 123-4567</a>
+                <a href="tel:+11234567891">123-456-7891</a>
               </div>
             </div>
             <div class="info-item">
               <div class="info-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
               </div>
               <div>
-                <h3>Hours</h3>
-                <p>Mon–Fri: 8:00am – 6:00pm<br>Sat: 9:00am – 1:00pm</p>
+                <h3>Address</h3>
+                <address>123 Main Street<br>Anytown, USA 01234</address>
               </div>
             </div>
           </aside>
@@ -217,6 +226,7 @@
               <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
             </div>
             <button class="btn btn-lg btn-block" type="submit">Send Inquiry</button>
+            <p class="form-status" id="formStatus" role="alert" hidden></p>
             <p class="form-note">We respect your privacy and never share your information.</p>
           </form>
 
@@ -237,10 +247,11 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a class="brand" href="#top">
-          <span class="brand-mark" aria-hidden="true">M</span>
-          <span class="brand-name">My Business Name</span>
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span class="brand-name">Acme 1-2-3</span>
         </a>
         <p>What you offer in one clear sentence.</p>
+        <address class="footer-address">123 Main Street, Anytown, USA 01234 · <a href="tel:+11234567891">123-456-7891</a></address>
       </div>
       <nav aria-label="Footer">
         <ul class="footer-links">
@@ -252,7 +263,7 @@
       </nav>
     </div>
     <div class="container footer-bottom">
-      <p>&copy; <span id="year">2026</span> My Business Name. All rights reserved.</p>
+      <p>&copy; <span id="year">2026</span> Acme 1-2-3. All rights reserved.</p>
     </div>
   </footer>
 

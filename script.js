@@ -1,5 +1,5 @@
 /* =========================================================
-   My Business Name — site interactions (vanilla JS)
+   Acme 1-2-3 — site interactions (vanilla JS)
    ========================================================= */
 (function () {
   'use strict';
@@ -133,7 +133,12 @@
   var success = document.getElementById('formSuccess');
   var successName = document.getElementById('successName');
   var resetBtn = document.getElementById('resetForm');
+  var statusEl = document.getElementById('formStatus');
   if (!form) return;
+
+  // Inquiries are emailed to this address via FormSubmit.
+  var CONTACT_EMAIL = 'vitoferlisi@gmail.com';
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + CONTACT_EMAIL;
 
   var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   var phoneRe = /^[+()\d\s.-]{7,20}$/;
@@ -210,29 +215,48 @@
     var originalText = submitBtn.textContent;
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
+    statusEl.hidden = true;
 
     var data = {
       name: form.elements.name.value.trim(),
       email: form.elements.email.value.trim(),
-      phone: form.elements.phone.value.trim(),
+      phone: form.elements.phone.value.trim() || 'Not provided',
       service: form.elements.service.value,
       message: form.elements.message.value.trim(),
-      submittedAt: new Date().toISOString()
+      _subject: 'New inquiry from ' + form.elements.name.value.trim() + ' (Acme 1-2-3 website)',
+      _template: 'table'
     };
 
-    /*
-     * This static site has no backend. To receive real submissions, POST
-     * `data` to a form service or a Cloudflare Pages Function here, e.g.:
-     *   fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
-     */
-    setTimeout(function () {
-      successName.textContent = data.name.split(' ')[0];
-      form.hidden = true;
-      success.hidden = false;
-      success.focus();
+    function done() {
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
-    }, 700);
+    }
+
+    function fail() {
+      statusEl.innerHTML = 'Sorry, your message could not be sent. Please try again or email us directly at ' +
+        '<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.';
+      statusEl.hidden = false;
+      done();
+    }
+
+    // Deliver the inquiry by email through FormSubmit (https://formsubmit.co)
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function (res) {
+        return res.json().then(function (json) { return { ok: res.ok, json: json }; });
+      })
+      .then(function (r) {
+        if (!r.ok || String(r.json.success) !== 'true') throw new Error(r.json.message || 'Send failed');
+        successName.textContent = data.name.split(' ')[0];
+        form.hidden = true;
+        success.hidden = false;
+        success.focus();
+        done();
+      })
+      .catch(fail);
   });
 
   resetBtn.addEventListener('click', function () {
@@ -240,6 +264,7 @@
     form.querySelectorAll('.field').forEach(function (f) { f.classList.remove('invalid'); });
     form.querySelectorAll('.error').forEach(function (el) { el.textContent = ''; });
     form.querySelectorAll('[aria-invalid]').forEach(function (el) { el.removeAttribute('aria-invalid'); });
+    statusEl.hidden = true;
     success.hidden = true;
     form.hidden = false;
     form.elements.name.focus();
